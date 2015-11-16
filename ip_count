@@ -3,14 +3,13 @@
 import sys
 ip = sys.argv[1]
 
-# Count how many times a certain IP appears in the Nginx decode logs
-# ip_count <IP>
+# Count how many times a certain IP appears in the decode logs
 def ip_count(ip):
     ipcount = []
     for line in open('decodes.log'):
         if ip in line:
             ipcount.append(line.count(ip))
             total = sum(ipcount)
-    print total
+    print"This IP occurs {total} times".format(total=total)
 
 ip_count(ip)
